@@ -1,1 +1,1 @@
-# test final progect of Selenium+Python stepic course
+# final progect of Selenium+Python testing stepic course
