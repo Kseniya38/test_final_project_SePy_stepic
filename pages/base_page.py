@@ -68,3 +68,8 @@ class BasePage():
             return False
         return True
 
+
+    def go_to_cart():
+        button_cart = self.browser.find_element(*BasePageLocators.CART_BUTTON)
+        button_cart.click()
+

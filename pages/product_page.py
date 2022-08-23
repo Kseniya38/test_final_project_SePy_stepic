@@ -4,15 +4,6 @@ from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
-    def go_to_login_page(self):
-        login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
-        login_link.click()
-
-
-    def should_be_login_link(self):
-        assert self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
-
-
     def add_product_to_cart(self):
         button_add_to_cart = self.browser.find_element(*ProductPageLocators.ADD_TO_CART_BUTTON)
         button_add_to_cart.click()
