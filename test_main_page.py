@@ -1,3 +1,4 @@
+import pytest
 from .pages.main_page import MainPage
 from .pages.basket_page import BasketPage
 from selenium.webdriver.common.by import By
