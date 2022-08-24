@@ -1,5 +1,6 @@
 import pytest
 from .pages.main_page import MainPage
+from .pages.login_page import LoginPage
 from .pages.basket_page import BasketPage
 from selenium.webdriver.common.by import By
 
@@ -7,7 +8,7 @@ from selenium.webdriver.common.by import By
 @pytest.mark.login_guest
 class TestLoginFromMainPage():
     def test_guest_can_go_to_login_page(self, browser):
-        link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209?promo=midsummer"
+        link = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/"
         # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
         page = MainPage(browser, link) 
         page.open()
@@ -16,17 +17,18 @@ class TestLoginFromMainPage():
         login_page.should_be_login_page()
 
 
-    def test_guest_should_see_login_link(browser):
-        link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209?promo=midsummer"
+    def test_guest_should_see_login_link(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/"
         page = MainPage(browser, link)
         page.open()
         page.should_be_login_link()
 
 
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
-    link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209?promo=midsummer"
+    link = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/"
     page = MainPage(browser, link)
     page.open()
     page.go_to_cart()
-    page.should_not_be_products_in_cart()
-    page.should_be_message_no_products()
+    basket = BasketPage(browser, link)
+    basket.should_not_be_products_in_cart()
+    basket.should_be_message_no_products()
