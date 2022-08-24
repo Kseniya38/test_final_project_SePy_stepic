@@ -16,7 +16,7 @@ class BasePage():
 
 
     def go_to_login_page(self):
-        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK_INVALID)
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
         #alert = self.browser.switch_to.alert
         #alert.accept()
@@ -69,7 +69,7 @@ class BasePage():
         return True
 
 
-    def go_to_cart():
+    def go_to_cart(self):
         button_cart = self.browser.find_element(*BasePageLocators.CART_BUTTON)
         button_cart.click()
 
